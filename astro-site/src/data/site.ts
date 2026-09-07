@@ -11,7 +11,7 @@ export const site = {
   social: {
     twitter: 'https://twitter.com/alfian_setia',
     facebook: 'https://www.facebook.com/alfian.setiawan.90',
-    instagram: 'https://instagram.com/masfian96',
+    instagram: 'https://instagram.com/codewithalfi',
   },
   nav: [
     { label: 'Home', href: '/' },
