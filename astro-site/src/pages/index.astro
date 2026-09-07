@@ -1,0 +1,297 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AdSlot from '../components/AdSlot.astro';
+
+const title = 'KCNET | Layanan Extra Untuk Device Anda | VPN Remote MikroTik Gratis';
+const description =
+  'KCNET adalah layanan tunneling untuk VPN Remote MikroTik tanpa IP Publik, Cloud Userman (RADIUS), Jasa Setting MikroTik, dan Template Hotspot. Solusi IP publik dinamis & Indihome.';
+const keywords =
+  'vpn, vpn remote, vpn remote mikrotik, remote diluar jaringan, solusi ip publik, solusi ip publik dinamis, ip publik indihome, cloud hosting, jasa setting mikrotik';
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Alfi Network - KCNET',
+  url: 'https://kacangan.net',
+  logo: 'https://kacangan.net/assets/images/logo.png',
+  sameAs: [
+    'https://twitter.com/alfian_setia',
+    'https://www.facebook.com/alfian.setiawan.90',
+    'https://instagram.com/masfian96',
+  ],
+};
+
+const servicesJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: [
+    { '@type': 'Service', name: 'Jasa Setting MikroTik', url: 'https://kacangan.net/jasa-setting-mikrotik/' },
+    { '@type': 'Service', name: 'Cloud Userman', url: 'https://kacangan.net/cloud-userman/' },
+    { '@type': 'Service', name: 'VPN Remote', url: 'https://kacangan.net/vpn-remote/' },
+    { '@type': 'Service', name: 'Template Hotspot', url: 'https://kacangan.net/template-hotspot/' },
+  ],
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Apa itu VPN Remote?', acceptedAnswer: { '@type': 'Answer', text: 'VPN Remote adalah layanan untuk mengakses MikroTik dan perangkat di belakangnya dari luar jaringan tanpa IP Publik.' } },
+    { '@type': 'Question', name: 'Apa itu Cloud Userman?', acceptedAnswer: { '@type': 'Answer', text: 'Cloud Userman adalah RADIUS server berbasis MikroTik User Manager tersedia secara cloud, mendukung multi-router dan unlimited session.' } },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords} jsonLd={[orgJsonLd, servicesJsonLd, faqJsonLd]}>
+  <!-- HERO — split, gradient animated + floating dashboard -->
+  <section class="relative overflow-hidden bg-slate-950">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/40 via-violet-600/20 to-cyan-500/20 gradient-animated"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+    <div class="absolute -top-32 -right-32 h-[480px] w-[480px] rounded-full bg-primary/30 blur-[100px]"></div>
+    <div class="absolute -bottom-32 -left-32 h-[420px] w-[420px] rounded-full bg-violet-600/20 blur-[90px]"></div>
+
+    <div class="container-narrow relative py-12 md:py-20">
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold tracking-wide text-white backdrop-blur">
+            <span class="h-2 w-2 rounded-full bg-emerald-400 shadow shadow-emerald-400/50"></span>
+            Terpercaya sejak 2016 — 1000+ MikroTik aktif
+            <span class="hidden rounded-full bg-white px-2 py-0.5 text-[10px] font-bold text-slate-900 sm:inline">99.9% Uptime</span>
+          </div>
+          <h1 class="mt-4 text-4xl font-extrabold leading-[1.05] text-white md:text-5xl">
+            Kelola Jaringan
+            <span class="bg-gradient-to-r from-white via-primary/20 to-cyan-300 bg-clip-text text-transparent">MikroTik</span>
+            Tanpa Ribet IP Publik
+          </h1>
+          <p class="mt-4 max-w-xl text-[15px] leading-relaxed text-white/75 md:text-lg">
+            Tunneling handal untuk <strong class="text-white">VPN Remote</strong>, <strong class="text-white">Cloud Userman</strong>, <strong class="text-white">Jasa Setting</strong> & <strong class="text-white">Template Hotspot</strong>. Solusi IP dinamis / Indihome, setup cepat, support 24/7.
+          </p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href="https://wa.me/6282324129752?text=Halo%20KCNET%2C%20saya%20ingin%20konsultasi%20MikroTik" class="btn btn-primary inline-flex items-center gap-2 px-7 py-3.5 text-[15px]">Konsultasi Gratis — WA <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+            <a href="#layanan" class="btn inline-flex items-center gap-2 bg-white/10 px-6 py-3.5 text-white ring-1 ring-white/20 backdrop-blur hover:bg-white hover:text-slate-900">Lihat Layanan <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg></a>
+          </div>
+          <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-white/60">
+            <span class="inline-flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Tanpa IP Publik</span>
+            <span class="inline-flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Setup {"<"} 10 menit</span>
+            <span class="inline-flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Support WA cepat</span>
+          </div>
+        </div>
+
+        <!-- mock dashboard -->
+        <div class="relative reveal reveal-delay-1">
+          <div class="relative mx-auto max-w-[520px]">
+            <div class="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-primary/30 to-violet-600/30 blur-2xl"></div>
+            <div class="relative overflow-hidden rounded-[20px] border border-white/10 bg-white shadow-2xl">
+              <div class="flex items-center gap-1.5 border-b bg-slate-50 px-4 py-3">
+                <span class="h-3 w-3 rounded-full bg-red-400"></span><span class="h-3 w-3 rounded-full bg-yellow-400"></span><span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+                <span class="ml-3 text-xs font-semibold text-slate-500">winbox — 10.10.10.1 — KCNET Tunnel</span>
+                <span class="ml-auto hidden rounded bg-emerald-50 px-2 py-1 text-[10px] font-bold text-emerald-700 sm:inline">● Connected</span>
+              </div>
+              <img src="/assets/images/mik.png" alt="Router MikroTik KCNET" width="520" height="320" class="h-auto w-full object-contain p-4" loading="eager" fetchpriority="high" />
+              <div class="grid grid-cols-3 gap-2 border-t bg-slate-50/70 p-3 text-center">
+                <div class="rounded-xl bg-white p-3 shadow-sm"><p class="text-[11px] font-semibold tracking-wide text-slate-500">LATENCY</p><p class="text-sm font-bold text-slate-900">18 ms</p></div>
+                <div class="rounded-xl bg-white p-3 shadow-sm"><p class="text-[11px] font-semibold tracking-wide text-slate-500">UPTIME</p><p class="text-sm font-bold text-emerald-600">99.9%</p></div>
+                <div class="rounded-xl bg-white p-3 shadow-sm"><p class="text-[11px] font-semibold tracking-wide text-slate-500">TUNNEL</p><p class="text-sm font-bold text-primary">Aktif</p></div>
+              </div>
+            </div>
+            <!-- floating cards -->
+            <div class="absolute -left-4 top-6 hidden animate-float rounded-2xl border bg-white p-3 shadow-xl md:flex items-center gap-3">
+              <div class="grid h-9 w-9 place-items-center rounded-xl bg-emerald-50 text-emerald-600">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <div><p class="text-xs font-bold leading-none">VPN Remote</p><p class="text-[11px] text-slate-500">Tanpa IP Publik</p></div>
+            </div>
+            <div class="absolute -right-3 bottom-8 hidden animate-float-slow rounded-2xl border bg-white p-3 shadow-xl md:flex items-center gap-3">
+              <div class="grid h-9 w-9 place-items-center rounded-xl bg-primary/10 text-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a4 4 0 0 1 0-8 5.5 5.5 0 0 1 10.2 2.5A3.5 3.5 0 0 1 17.5 19z"/></svg>
+              </div>
+              <div><p class="text-xs font-bold leading-none">Cloud Userman</p><p class="text-[11px] text-slate-500">Multi-router</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- trust strip -->
+      <div class="reveal reveal-delay-2 mt-10 grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur md:grid-cols-4">
+        <div class="rounded-xl bg-white px-4 py-3 text-center"><p class="text-xl font-extrabold text-slate-900">1.500+</p><p class="text-xs font-medium text-slate-500">Client aktif</p></div>
+        <div class="rounded-xl bg-white px-4 py-3 text-center"><p class="text-xl font-extrabold text-slate-900">6</p><p class="text-xs font-medium text-slate-500">Layanan spesial</p></div>
+        <div class="rounded-xl bg-white px-4 py-3 text-center"><p class="text-xl font-extrabold text-emerald-600">99.9%</p><p class="text-xs font-medium text-slate-500">Uptime tunnel</p></div>
+        <div class="rounded-xl bg-white px-4 py-3 text-center"><p class="text-xl font-extrabold text-slate-900">2016</p><p class="text-xs font-medium text-slate-500">Berpengalaman</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO / USE CASE strip -->
+  <section class="border-y bg-white py-4">
+    <div class="container-narrow flex flex-wrap items-center justify-center gap-3 text-xs font-semibold tracking-wide text-slate-500 md:justify-between">
+      <span class="opacity-70">Dipercaya untuk:</span>
+      <span class="rounded-full border bg-slate-50 px-3 py-1">Warnet</span>
+      <span class="rounded-full border bg-slate-50 px-3 py-1">RT/RW Net</span>
+      <span class="rounded-full border bg-slate-50 px-3 py-1">Hotspot Cafe</span>
+      <span class="rounded-full border bg-slate-50 px-3 py-1">Sekolah</span>
+      <span class="rounded-full border bg-slate-50 px-3 py-1">Kantor</span>
+      <span class="rounded-full border bg-slate-50 px-3 py-1">ISP Lokal</span>
+    </div>
+  </section>
+
+  <!-- LAYANAN — cards -->
+  <section id="layanan" class="container-narrow py-16 md:py-20">
+    <div class="mx-auto max-w-3xl text-center reveal">
+      <p class="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-bold tracking-wide text-primary">APA YANG KAMI BANTU?</p>
+      <h2 class="mt-3 text-3xl font-extrabold md:text-4xl">6 Layanan Spesial Untuk Anda</h2>
+      <p class="mt-3 text-slate-600">Pilih sesuai kebutuhan — dari setting sampai cloud. Klik kartu untuk detail & harga.</p>
+    </div>
+
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      <a href="/jasa-setting-mikrotik/" class="group card-hover reveal rounded-2xl border bg-white p-6 shadow-sm">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-violet-600 text-white shadow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <h3 class="mt-4 font-bold group-hover:text-primary">Jasa Setting MikroTik</h3>
+        <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Warnet, Hotspot, RT/RW Net, Kantor, Sekolah, Cafe — load balance, firewall, QoS, hotspot.</p>
+        <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary">Lihat detail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="/jasa-setting-mikrotik/" class="group card-hover reveal reveal-delay-1 rounded-2xl border bg-white p-6 shadow-sm">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></svg>
+        </div>
+        <h3 class="mt-4 font-bold group-hover:text-primary">Jasa Setting Squid Proxy</h3>
+        <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Hemat bandwidth & percepat akses website dengan cache proxy yang optimal.</p>
+        <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary">Coba sekarang <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="/cloud-userman/" class="group card-hover reveal reveal-delay-2 rounded-2xl border bg-white p-6 shadow-sm">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a4 4 0 0 1 0-8 5.5 5.5 0 0 1 10.2 2.5A3.5 3.5 0 0 1 17.5 19z"/><path d="M12 13v-1"/><path d="M9 13h6"/></svg>
+        </div>
+        <h3 class="mt-4 font-bold group-hover:text-primary">Cloud Userman</h3>
+        <p class="mt-1.5 text-sm leading-relaxed text-slate-600">RADIUS cloud berbasis User Manager — simpan user terpusat, multi-router, unlimited session.</p>
+        <span class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary">Mulai 25K/bulan <span class="rounded bg-emerald-50 px-2 py-0.5 text-xs text-emerald-700">Popular</span></span>
+      </a>
+      <a href="/vpn-remote/" class="group card-hover reveal rounded-2xl border bg-white p-6 shadow-sm">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-orange-500 to-pink-600 text-white shadow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.2"/></svg>
+        </div>
+        <h3 class="mt-4 font-bold group-hover:text-primary">VPN Remote</h3>
+        <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Akses MikroTik dari luar tanpa IP Publik — WinBox, Webfig, API stabil.</p>
+        <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary">Mulai 10K/bulan <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <div class="card-hover reveal reveal-delay-1 rounded-2xl border bg-white p-6 shadow-sm">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-slate-700 to-slate-900 text-white shadow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="mt-4 font-bold">Pelatihan PoE Centrum</h3>
+        <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Beri daya Access Point terpusat yang rapi & aman — cocok untuk gedung bertingkat.</p>
+        <span class="mt-3 inline-flex text-sm font-semibold text-slate-400">Konsultasi dulu</span>
+      </div>
+      <a href="/template-hotspot/" class="group card-hover reveal reveal-delay-2 rounded-2xl border bg-white p-6 shadow-sm">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-fuchsia-500 to-primary text-white shadow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <h3 class="mt-4 font-bold group-hover:text-primary">Template Hotspot</h3>
+        <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Portal login keren, responsif, mudah kustom logo & warna — upload langsung ke MikroTik.</p>
+        <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary">Lihat template <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Iklan 1 — jeda antar-section (tidak di hero, anti-CLS, lazy) -->
+  <section class="container-narrow py-2" aria-label="Iklan">
+    <AdSlot variant="display" />
+  </section>
+
+  <!-- MENGAPA + HOW IT WORKS -->
+  <section class="bg-slate-50 py-16 md:py-20">
+    <div class="container-narrow">
+      <div class="grid gap-10 md:grid-cols-2">
+        <div class="reveal">
+          <p class="inline-flex rounded-full bg-white px-3 py-1 text-xs font-bold tracking-wide text-slate-700 shadow">KENAPA ALFI NET?</p>
+          <h2 class="mt-3 text-3xl font-extrabold">6 Alasan Memilih Kami</h2>
+          <p class="mt-2 text-slate-600">Bukan sekadar jualan tunnel — kami bantu jaringanmu tumbuh.</p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border bg-white p-5 shadow-sm">
+              <div class="flex items-center gap-2"><span class="grid h-8 w-8 place-items-center rounded-lg bg-slate-900 text-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v4"/><path d="M14 2v4"/><path d="M5 6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-3"/><path d="M9 14a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M15.5 15.5L19 19"/></svg></span><h3 class="font-semibold text-sm">Riset Matang</h3></div>
+              <p class="mt-2 text-sm text-slate-600">Layanan hotspot handal, sudah diuji di banyak client.</p>
+            </div>
+            <div class="rounded-2xl border bg-white p-5 shadow-sm">
+              <div class="flex items-center gap-2"><span class="grid h-8 w-8 place-items-center rounded-lg bg-emerald-600 text-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3 class="font-semibold text-sm">Teruji & Terbukti</h3></div>
+              <p class="mt-2 text-sm text-slate-600">Jaringan terus berkembang, bukan coba-coba.</p>
+            </div>
+            <div class="rounded-2xl border bg-white p-5 shadow-sm">
+              <div class="flex items-center gap-2"><span class="grid h-8 w-8 place-items-center rounded-lg bg-primary text-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M12 2v6h6"/><path d="M9 15h6"/><path d="M9 18h6"/></svg></span><h3 class="font-semibold text-sm">Harga Kompetitif</h3></div>
+              <p class="mt-2 text-sm text-slate-600">Mulai 10K/bulan — pelayanan lebih baik.</p>
+            </div>
+            <div class="rounded-2xl border bg-white p-5 shadow-sm">
+              <div class="flex items-center gap-2"><span class="grid h-8 w-8 place-items-center rounded-lg bg-cyan-600 text-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><h3 class="font-semibold text-sm">Dukungan Tuntas</h3></div>
+              <p class="mt-2 text-sm text-slate-600">Bantuan teknis sampai tuntas, bukan lepas tangan.</p>
+            </div>
+            <div class="rounded-2xl border bg-white p-5 shadow-sm">
+              <div class="flex items-center gap-2"><span class="grid h-8 w-8 place-items-center rounded-lg bg-violet-600 text-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><h3 class="font-semibold text-sm">Konsultasi Gratis</h3></div>
+              <p class="mt-2 text-sm text-slate-600">Tanya dulu sebelum bayar — via WA cepat.</p>
+            </div>
+            <div class="rounded-2xl border bg-white p-5 shadow-sm">
+              <div class="flex items-center gap-2"><span class="grid h-8 w-8 place-items-center rounded-lg bg-slate-700 text-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span><h3 class="font-semibold text-sm">Anggaran Fleksibel</h3></div>
+              <p class="mt-2 text-sm text-slate-600">Perangkat & layanan menyesuaikan budgetmu.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="rounded-[20px] border bg-white p-6 shadow-sm">
+            <h3 class="font-bold">Cara Kerja — 3 Langkah Online</h3>
+            <ol class="mt-6 space-y-5">
+              <li class="flex gap-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-sm font-bold text-white">1</span><div><p class="font-semibold">Pilih layanan & hubungi WA</p><p class="text-sm text-slate-600">Kami rekomendasikan paket sesuai topologi jaringanmu.</p></div></li>
+              <li class="flex gap-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-900 text-sm font-bold text-white">2</span><div><p class="font-semibold">Setup & tunneling</p><p class="text-sm text-slate-600">Panduan step-by-step, bisa remote — {"<"}10 menit jadi.</p></div></li>
+              <li class="flex gap-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-emerald-600 text-sm font-bold text-white">3</span><div><p class="font-semibold">Akses dari mana saja</p><p class="text-sm text-slate-600">WinBox/Webfig/API langsung konek tanpa IP Publik.</p></div></li>
+            </ol>
+            <a href="https://wa.me/6282324129752?text=Saya%20ingin%20konsultasi%20KCNET" class="btn btn-primary mt-6 w-full justify-center">Mulai Sekarang — Gratis Konsultasi</a>
+            <p class="mt-3 text-center text-xs text-slate-500">Rata-rata balasan {"<"} 5 menit di jam kerja</p>
+          </div>
+          <div class="mt-4 grid grid-cols-3 gap-3 text-center text-xs">
+            <div class="rounded-xl border bg-white p-3"><p class="font-bold">WinBox</p><p class="text-slate-500">Full support</p></div>
+            <div class="rounded-xl border bg-white p-3"><p class="font-bold">Webfig</p><p class="text-slate-500">Browser</p></div>
+            <div class="rounded-xl border bg-white p-3"><p class="font-bold">API</p><p class="text-slate-500">Otomasi</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA gradient -->
+  <section class="relative overflow-hidden bg-slate-900 py-14 text-white">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-violet-600/20"></div>
+    <div class="container-narrow relative flex flex-col items-center gap-6 md:flex-row">
+      <img src="/assets/images/background2.jpg" alt="Konsultasi MikroTik gratis" width="360" height="240" class="h-48 w-full max-w-sm rounded-2xl object-cover shadow-xl md:w-[38%]" loading="lazy" />
+      <div class="flex-1 reveal">
+        <h2 class="text-3xl font-extrabold leading-tight">Masih Bingung Mau Mulai Dari Mana?</h2>
+        <p class="mt-2 text-white/75">Ceritakan topologimu — kami bantu pilih paket paling hemat & stabil. Gratis, tanpa komitmen.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://wa.me/6282324129752?text=Saya%20ingin%20konsultasi%20KCNET" class="btn btn-primary">Konsultasi via WhatsApp</a>
+          <a href="/vpn-remote/" class="btn bg-white/10 text-white ring-1 ring-white/20 hover:bg-white hover:text-slate-900">Cek Harga VPN Remote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iklan 2 — setelah CTA, sebelum testimonial -->
+  <section class="container-narrow py-6" aria-label="Iklan">
+    <AdSlot variant="feed" />
+  </section>
+
+  <!-- Testimonial -->
+  <section class="container-narrow flex flex-col items-center gap-8 py-16 md:flex-row">
+    <blockquote class="reveal flex-1 rounded-2xl border bg-white p-6 shadow-sm">
+      <div class="flex gap-1 text-amber-400" aria-label="Rating 5 dari 5">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="mt-3 text-lg italic leading-relaxed text-slate-700">“Teruslah belajar, teruslah mencoba, dan teruslah berkarya. Habiskan sisa kegagalanmu mulai dari SEKARANG.”</p>
+      <footer class="mt-4 flex items-center gap-3">
+        <img src="/assets/images/alfi.jpg" alt="Alfian Setiawan" width="44" height="44" class="h-11 w-11 rounded-full object-cover" loading="lazy" />
+        <div><p class="font-semibold leading-none">Alfian S.</p><p class="text-sm text-slate-500">Founder — Alfi Network (sejak 2016)</p></div>
+      </footer>
+    </blockquote>
+    <img src="/assets/images/alfi.jpg" alt="Foto Alfian Setiawan - Alfi Network" width="280" height="280" class="reveal reveal-delay-1 h-56 w-56 rounded-[20px] object-cover shadow-xl md:h-64 md:w-64" loading="lazy" />
+  </section>
+</BaseLayout>

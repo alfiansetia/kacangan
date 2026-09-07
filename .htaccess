@@ -1,0 +1,91 @@
+# KCNET - Shared Hosting .htaccess (Apache / cPanel / Laragon)
+# Letakkan file ini di public_html (hasil build dist/) bersama index.html
+
+# --- 0. Proteksi & opsi dasar ---
+Options -Indexes
+ServerSignature Off
+<Files ".htaccess">
+  Require all denied
+</Files>
+
+# --- 1. Force HTTPS + non-www canonical (kacangan.net) ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect www -> non-www
+  RewriteCond %{HTTP_HOST} ^www\.kacangan\.net [NC]
+  RewriteRule ^(.*)$ https://kacangan.net/$1 [R=301,L]
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # --- 2. 301 Redirect URL lama .html -> clean URL (preserve SEO juice) ---
+  RewriteRule ^vpn-remot\.html$ /vpn-remote/ [R=301,L]
+  RewriteRule ^cloud-userman\.html$ /cloud-userman/ [R=301,L]
+  RewriteRule ^pembayaran\.html$ /pembayaran/ [R=301,L]
+  RewriteRule ^privasi\.html$ /privasi/ [R=301,L]
+  RewriteRule ^template-hotspot\.html$ /template-hotspot/ [R=301,L]
+  RewriteRule ^layanan\.html$ /layanan/ [R=301,L]
+  RewriteRule ^index\.html$ / [R=301,L]
+  RewriteRule ^product\.html$ /layanan/ [R=301,L]
+
+  # Hilangkan .html jika masih diakses manual
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+  RewriteRule ^ %1/ [R=301,L]
+
+  # --- 3. Trailing slash untuk directory (opsional, Astro format:directory) ---
+  # Jangan paksa slash untuk file (css/js/img) — hanya untuk path tanpa ekstensi
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !\.[a-z0-9]+$ [NC]
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+  # --- 4. Astro clean URL: /layanan/ -> /layanan/index.html ---
+  # Apache biasanya sudah handle DirectoryIndex, tapi pastikan:
+  DirectoryIndex index.html
+</IfModule>
+
+# --- 5. Custom 404 (Astro menghasilkan 404.html di root) ---
+ErrorDocument 404 /404.html
+
+# --- 6. Compress (mod_deflate) ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json image/svg+xml
+</IfModule>
+
+# --- 7. Cache header (mod_expires) ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/x-javascript "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresDefault "access plus 1 month"
+</IfModule>
+
+# --- 8. Security headers (jika mod_headers tersedia) ---
+<IfModule mod_headers.c>
+  Header always append X-Frame-Options SAMEORIGIN
+  Header set X-Content-Type-Options nosniff
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+  <FilesMatch "\.(css|js|jpg|jpeg|png|webp|avif|svg|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# --- 9. Cegah akses file sensitif ---
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>

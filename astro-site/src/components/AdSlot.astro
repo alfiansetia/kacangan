@@ -1,0 +1,54 @@
+---
+/**
+ * AdSlot — placeholder iklan yang ramah CWV & tidak mengganggu konten.
+ * - Reserve height (anti-CLS), tampilkan label "Advertisement"
+ * - Lazy push adsbygoogle hanya saat slot terlihat (IntersectionObserver)
+ * - Tidak dipasang di hero / above-the-fold; letakkan di jeda antar section
+ * Penggunaan: <AdSlot variant="in-article" /> atau <AdSlot variant="feed" />
+ */
+interface Props {
+  variant?: 'display' | 'in-article' | 'feed';
+  label?: string;
+  class?: string;
+}
+const { variant = 'display', label = 'Advertisement', class: className = '' } = Astro.props as Props;
+const variantClass = variant === 'in-article' ? 'ad-slot--in-article' : variant === 'feed' ? 'ad-slot--feed' : '';
+---
+
+<div class={`ad-slot ${variantClass} ${className}`.trim()} role="complementary" aria-label={label}>
+  <span class="ad-slot__label">{label} — KCNET</span>
+  <ins
+    class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-5305602249845738"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"
+  ></ins>
+</div>
+
+<script is:inline>
+  (function () {
+    var slots = document.querySelectorAll('.ad-slot ins.adsbygoogle');
+    if (!slots.length) return;
+    function push(el) {
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+      el.setAttribute('data-pushed', '1');
+    }
+    // Lazy: dorong hanya saat slot masuk viewport (hemat resource + tidak blok render)
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            var ins = e.target;
+            if (!ins.getAttribute('data-pushed')) push(ins);
+            io.unobserve(ins);
+          }
+        });
+      }, { rootMargin: '240px 0px' });
+      slots.forEach(function (s) { io.observe(s); });
+    } else {
+      slots.forEach(function (s) { push(s); });
+    }
+  })();
+</script>

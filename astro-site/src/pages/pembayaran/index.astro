@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const title = 'Cara Pembayaran KCNET - OVO, DANA, BRI, Mandiri, BCA | Alfi Network';
+const description = 'Metode pembayaran KCNET: OVO/DANA/SAKUKU 082324129752, Bank Mandiri 1660002228260, BRI 583901018105535, BCA 7410935109 a.n ALFIAN SETIAWAN. Konfirmasi via WA.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-slate-950 py-10 text-white">
+    <div class="container-narrow">
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Pembayaran' }]} />
+      <h1 class="mt-4 text-4xl font-extrabold">Cara Pembayaran</h1>
+      <p class="mt-2 text-white/70">Silahkan pilih metode pembayaran yang ingin Anda gunakan.</p>
+    </div>
+  </section>
+
+  <section class="container-narrow py-12">
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="rounded-2xl border p-6">
+        <h2 class="font-semibold">OVO / DANA / SAKUKU</h2>
+        <p class="mt-2 text-sm text-slate-600">a.n ALFIAN SETIAWAN<br /><span class="font-mono text-lg font-bold">082324129752</span></p>
+      </div>
+      <div class="rounded-2xl border p-6">
+        <h2 class="font-semibold">BANK MANDIRI</h2>
+        <p class="mt-2 text-sm text-slate-600">a.n ALFIAN SETIAWAN<br /><span class="font-mono text-lg font-bold">1660002228260</span></p>
+      </div>
+      <div class="rounded-2xl border p-6">
+        <h2 class="font-semibold">BANK BRI</h2>
+        <p class="mt-2 text-sm text-slate-600">a.n ALFIAN SETIAWAN<br /><span class="font-mono text-lg font-bold">583901018105535</span></p>
+      </div>
+      <div class="rounded-2xl border p-6">
+        <h2 class="font-semibold">BANK BCA</h2>
+        <p class="mt-2 text-sm text-slate-600">a.n ALFIAN SETIAWAN<br /><span class="font-mono text-lg font-bold">7410935109</span></p>
+      </div>
+    </div>
+    <div class="mt-8 rounded-xl bg-amber-50 p-4 text-sm text-amber-900">
+      Setelah transfer, mohon konfirmasi via <a href="https://wa.me/6282324129752?text=Saya%20sudah%20melakukan%20pembayaran%20KCNET" class="font-semibold underline">WhatsApp 0823-2412-9752</a> dengan bukti transfer.
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-12">
+    <div class="container-narrow text-center">
+      <h2 class="text-2xl font-bold">Butuh Bantuan Pembayaran?</h2>
+      <p class="mt-2 text-slate-600">Warnet, hotspot corner, RT/RW Net, kantor, sekolah, cafe, resto — hubungi kami.</p>
+      <a href="https://wa.me/6282324129752?text=Saya%20ingin%20bertanya%20tentang%20pembayaran" class="btn btn-primary mt-6">Hubungi via WA</a>
+    </div>
+  </section>
+</BaseLayout>

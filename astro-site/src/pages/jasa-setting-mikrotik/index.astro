@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const title = 'Jasa Setting MikroTik Profesional - RT/RW Net, Hotspot, Kantor, Sekolah | KCNET';
+const description = 'Jasa Setting MikroTik untuk Warnet, Hotspot, RT/RW Net, Kantor, Sekolah, Cafe, Resto. Termasuk setting Squid Proxy & PoE Centrum. Konsultasi gratis, harga kompetitif.';
+const keywords = 'jasa setting mikrotik, setting mikrotik warnet, setting hotspot mikrotik, setting rt rw net, jasa setting proxy squid';
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Jasa Setting MikroTik',
+  provider: { '@type': 'Organization', name: 'Alfi Network - KCNET', url: 'https://kacangan.net' },
+  description,
+  areaServed: 'ID',
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords} jsonLd={serviceJsonLd}>
+  <section class="bg-slate-950 py-10 text-white">
+    <div class="container-narrow">
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Layanan', href: '/layanan/' }, { label: 'Jasa Setting MikroTik' }]} />
+      <h1 class="mt-4 text-4xl font-extrabold">Jasa Setting MikroTik</h1>
+      <p class="mt-2 max-w-3xl text-white/70">Setting MikroTik untuk Warnet, Hotspot, RT/RW Net, Kantor, Sekolah, Cafe, Resto & tempat publik lainnya. Manajemen jaringan yang handal & efisien.</p>
+      <a href="https://wa.me/6282324129752?text=Saya%20ingin%20konsultasi%20Jasa%20Setting%20MikroTik" class="btn btn-primary mt-6">Konsultasi Gratis via WA</a>
+    </div>
+  </section>
+
+  <section class="container-narrow py-12">
+    <h2 class="text-2xl font-bold">Layanan Kami</h2>
+    <div class="mt-6 grid gap-6 md:grid-cols-3">
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">Setting MikroTik Hotspot & RT/RW Net</h3><p class="mt-2 text-sm text-slate-600">Konfigurasi lengkap untuk usaha RT/RW Net, hotspot voucher, manajemen bandwidth.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">Setting Squid Proxy</h3><p class="mt-2 text-sm text-slate-600">Hemat bandwidth & percepat akses website dengan proxy caching.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">Sistem PoE Centrum</h3><p class="mt-2 text-sm text-slate-600">Suplai daya terpusat untuk banyak access point — lebih rapi & efisien.</p></div>
+    </div>
+    <div class="mt-10 rounded-2xl bg-primary/10 p-6">
+      <h3 class="font-semibold">Benefit: Gratis Cloud Userman</h3>
+      <p class="mt-1 text-sm text-slate-700">Dapatkan <a href="/cloud-userman/" class="text-primary underline">Cloud Userman</a> gratis jika menggunakan Jasa Setting MikroTik kami. Termasuk gratis <a href="/vpn-remote/" class="text-primary underline">VPN Remote</a>.</p>
+    </div>
+  </section>
+</BaseLayout>

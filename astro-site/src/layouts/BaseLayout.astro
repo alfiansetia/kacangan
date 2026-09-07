@@ -1,0 +1,109 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  noindex?: boolean;
+  keywords?: string;
+  jsonLd?: Record<string, any> | Record<string, any>[];
+  disableAds?: boolean;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  canonical,
+  ogImage = site.ogImage,
+  ogType = 'website',
+  noindex = false,
+  keywords,
+  jsonLd,
+  disableAds = false,
+} = Astro.props as Props;
+
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site.url).href;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="author" content={site.author} />
+    <meta name="theme-color" content={site.themeColor} />
+    <meta name="msapplication-navbutton-color" content={site.themeColor} />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content={site.themeColor} />
+    <link rel="icon" type="image/png" href="/assets/images/logo.png" />
+    <link rel="shortcut icon" href="/assets/images/logo.png" type="image/x-icon" />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+
+    <!-- Adsense & verification -->
+    <meta name="google-site-verification" content="h_X-NhslKd02vNniT_MCWepFhRPmUKdaWwoJG-UdAyw" />
+    {!disableAds && (
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5305602249845738" crossorigin="anonymous"></script>
+    )}
+    {/* Tips Auto Ads non-intrusif: di dashboard AdSense > Auto Ads matikan Anchor/Vignette/Overlap,
+        biarkan hanya In-page (Display/In-article). Slot manual <AdSlot /> di bawah sudah anti-CLS
+        dan hanya di-push saat terlihat (lazy), jadi tidak ganggu hero/CTA. */}
+
+    <!-- JSON-LD -->
+    {jsonLd && (
+      Array.isArray(jsonLd) ? jsonLd.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)
+                            : <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline>
+      (function(){
+        var m = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (m.matches) { document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); }); return; }
+        var els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window) || !els.length) { els.forEach(function(e){ e.classList.add('visible'); }); return; }
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function(el){ io.observe(el); });
+      })();
+    </script>
+  </body>
+</html>

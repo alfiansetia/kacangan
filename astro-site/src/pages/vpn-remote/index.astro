@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const title = 'VPN Remote MikroTik Tanpa IP Publik - Akses Dari Luar Jaringan | KCNET';
+const description = 'VPN Remote untuk akses MikroTik dan perangkat di belakangnya dari luar jaringan tanpa IP Publik. Support WinBox, Webfig, API Mikhmon/Mikbotam, port forward, server Indonesia.';
+const keywords = 'vpn remote mikrotik, vpn remote tanpa ip publik, remote mikrotik diluar jaringan, solusi ip publik indihome, tunnel api mikrotik';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'VPN Remote' },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Bagaimana cara mengakses router di luar jaringan dengan VPN Remote?', acceptedAnswer: { '@type': 'Answer', text: 'Anda dapat menggunakan WinBox, MikroTik App, maupun browser (Webfig) melalui tunnel VPN Remote.' } },
+    { '@type': 'Question', name: 'Apakah VPN Remote bisa untuk API MikroTik?', acceptedAnswer: { '@type': 'Answer', text: 'Ya, VPN Remote dapat sebagai tunnel aplikasi yang menggunakan API MikroTik seperti Mikhmon, Mikbotam, dll.' } },
+    { '@type': 'Question', name: 'Apakah bisa remote perangkat di belakang Mikrotik?', acceptedAnswer: { '@type': 'Answer', text: 'Ya, VPN Remote mendukung port forward untuk remote access point, router, web server di belakang MikroTik.' } },
+  ],
+};
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'VPN Remote MikroTik',
+  provider: { '@type': 'Organization', name: 'Alfi Network - KCNET', url: 'https://kacangan.net' },
+  description,
+  areaServed: 'ID',
+  offers: [
+    { '@type': 'Offer', name: 'P1 Bulanan', price: '10000', priceCurrency: 'IDR', url: 'https://kacangan.net/vpn-remote/' },
+    { '@type': 'Offer', name: 'P2 Tahunan', price: '100000', priceCurrency: 'IDR', url: 'https://kacangan.net/vpn-remote/' },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords} jsonLd={[faqJsonLd, serviceJsonLd]}>
+  <section class="bg-slate-950 py-10 text-white">
+    <div class="container-narrow">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="mt-4 text-4xl font-extrabold">VPN REMOTE</h1>
+      <p class="mt-2 text-xl text-white/80">VPN Untuk Mengakses Router MikroTik Atau Perangkat Di Belakangnya</p>
+      <p class="mt-4 max-w-3xl leading-relaxed text-white/70">VPN REMOTE merupakan layanan VPN khusus untuk remote MikroTik dari luar jaringan walaupun tidak mempunyai IP Public. Cocok bagi yang sering di luar jaringan namun ingin tetap memantau jaringan. Selain MikroTik, VPN REMOTE juga untuk memantau perangkat di bawahnya seperti router, access point, web server.</p>
+      <div class="mt-6 flex gap-3">
+        <a href="#paket" class="btn btn-primary">Pilih Paket ↓</a>
+        <a href="https://wa.me/6282324129752?text=Saya%20ingin%20berlangganan%20VPN%20Remote" class="btn bg-white text-slate-900">Hubungi WA</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-narrow py-12">
+    <h2 class="text-center text-3xl font-bold">Fungsi VPN Remote</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-4">
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">REMOTE MIKROTIK</h3><p class="mt-2 text-sm text-slate-600">Utamanya untuk remote Mikrotik dari luar jaringan via WinBox, Webfig, MikroTik App.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">TUNNEL API MIKROTIK</h3><p class="mt-2 text-sm text-slate-600">Sebagai tunnel aplikasi API seperti Mikhmon, Mikbotam, dll.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">REMOTE PERANGKAT LAIN</h3><p class="mt-2 text-sm text-slate-600">Remote perangkat di belakang MikroTik: access point, router, web server via port forward.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">MENGGANTI NAMA ISP</h3><p class="mt-2 text-sm text-slate-600">Menyembunyikan nama ISP & IP publik pada speedtest.</p></div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-12">
+    <div class="container-narrow">
+      <h2 class="text-center text-3xl font-bold">Mengapa VPN Remote Kami?</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-4">
+        <div class="rounded-2xl border bg-white p-6"><h3 class="font-semibold">LEBIH AMAN</h3><p class="mt-2 text-sm text-slate-600">Protokol terenkripsi, koneksi remote lebih aman.</p></div>
+        <div class="rounded-2xl border bg-white p-6"><h3 class="font-semibold">INSTALASI CEPAT</h3><p class="mt-2 text-sm text-slate-600">Cukup jalankan script, selesai <1 menit.</p></div>
+        <div class="rounded-2xl border bg-white p-6"><h3 class="font-semibold">LEBIH HEMAT</h3><p class="mt-2 text-sm text-slate-600">Jauh lebih hemat dibanding sewa IP Publik.</p></div>
+        <div class="rounded-2xl border bg-white p-6"><h3 class="font-semibold">SERVER INDONESIA</h3><p class="mt-2 text-sm text-slate-600">Server di Indonesia, koneksi lebih cepat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-narrow py-12 text-center">
+    <h2 class="text-3xl font-bold">INGIN LAYANAN VPN REMOTE GRATIS?</h2>
+    <p class="mt-2 text-slate-600">Gratis jika berlangganan <a href="/cloud-userman/" class="text-primary underline">Cloud Userman</a> atau beli <a href="/jasa-setting-mikrotik/" class="text-primary underline">Jasa Setting MikroTik</a>.</p>
+  </section>
+
+  <section id="paket" class="bg-slate-50 py-12">
+    <div class="container-narrow">
+      <h2 class="text-center text-3xl font-bold">PILIH PAKET SESUAI KEBUTUHAN</h2>
+      <p class="mt-2 text-center text-slate-600">Diskon spesial untuk banyak akun router MikroTik.</p>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <div class="rounded-2xl border bg-white p-8 text-center shadow-sm">
+          <h3 class="text-lg font-bold">P1</h3>
+          <p class="mt-2"><span class="text-4xl font-extrabold">Rp 10K</span> <span class="text-slate-500">/bulan</span></p>
+          <ul class="mt-6 space-y-2 text-sm text-slate-600">
+            <li>1 Port Remote MikroTik</li><li>3 Port Forward</li><li>Remote via WinBox/Webfig/MikroTik App</li><li>Tunnel untuk MikroTik API</li><li>Ganti nama ISP pada speed test</li><li>Gratis Konfigurasi</li>
+          </ul>
+          <a href="https://wa.me/6282324129752?text=Saya%20ingin%20berlangganan%20VPN%20Remote%20bulanan%20P1" class="btn btn-primary mt-6 w-full">BUY NOW</a>
+        </div>
+        <div class="rounded-2xl border bg-white p-8 text-center shadow-sm">
+          <h3 class="text-lg font-bold">P2</h3>
+          <p class="mt-2"><span class="text-4xl font-extrabold">Rp 100K</span> <span class="text-slate-500">/tahun</span></p>
+          <ul class="mt-6 space-y-2 text-sm text-slate-600">
+            <li>1 Router MikroTik</li><li>3 Port Forward</li><li>Remote via WinBox/Webfig/MikroTik App</li><li>Tunnel untuk MikroTik API</li><li>Ganti nama ISP pada speed test</li><li>Gratis Konfigurasi</li>
+          </ul>
+          <a href="https://wa.me/6282324129752?text=Saya%20ingin%20berlangganan%20VPN%20Remote%20tahunan%20P2" class="btn bg-slate-900 text-white hover:bg-slate-800 mt-6 w-full">BUY NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-narrow py-12">
+    <h2 class="text-center text-3xl font-bold">FAQ</h2>
+    <div class="mx-auto mt-8 max-w-3xl space-y-4">
+      <details class="rounded-xl border p-4 open:bg-slate-50"><summary class="cursor-pointer font-semibold">Bagaimana cara mengakses router di luar jaringan dengan layanan VPN Remote?</summary><p class="mt-2 text-slate-600">Gunakan WinBox, MikroTik App, atau browser (Webfig) melalui tunnel yang diberikan.</p></details>
+      <details class="rounded-xl border p-4 open:bg-slate-50"><summary class="cursor-pointer font-semibold">Apakah bisa untuk remote perangkat lain di belakang MikroTik?</summary><p class="mt-2 text-slate-600">Ya, gunakan fitur port forward (3 port) untuk access point, router, web server.</p></details>
+      <details class="rounded-xl border p-4 open:bg-slate-50"><summary class="cursor-pointer font-semibold">Apakah VPN Remote aman?</summary><p class="mt-2 text-slate-600">Ya, menggunakan protokol terenkripsi.</p></details>
+    </div>
+    <p class="mt-8 text-center text-sm text-slate-500">Ada pertanyaan lain? <a href="https://wa.me/6282324129752?text=Saya%20ingin%20bertanya%20tentang%20VPN%20Remote" class="text-primary underline">Hubungi Kami</a>.</p>
+  </section>
+</BaseLayout>

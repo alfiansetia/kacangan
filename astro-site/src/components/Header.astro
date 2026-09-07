@@ -1,0 +1,67 @@
+---
+import { site } from '../data/site';
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) => {
+  if (href.startsWith('http')) return false;
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-[#1a1a2e]/95 backdrop-blur supports-[backdrop-filter]:bg-[#1a1a2e]/80">
+  <div class="container-narrow flex h-16 items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-3 font-bold text-white">
+      <img src="/assets/images/logo.png" alt="KCNET Logo - Alfi Network" width="40" height="40" class="h-10 w-10 object-contain" />
+      <span class="text-lg tracking-tight">Alfi Network</span>
+      <span class="hidden text-xs font-normal text-white/60 sm:inline">kcangan.net</span>
+    </a>
+
+    <nav aria-label="Primary" class="hidden items-center gap-1 md:flex">
+      {site.nav.map((item: any) =>
+        item.children ? (
+          <div class="group relative">
+            <a
+              href={item.href}
+              class={`rounded-lg px-3 py-2 text-sm font-medium transition ${isActive(item.href) ? 'bg-white text-slate-900' : 'text-white/90 hover:bg-white/10 hover:text-white'}`}
+            >
+              {item.label}
+            </a>
+            <div class="absolute left-0 top-full hidden min-w-[220px] rounded-xl border bg-white p-2 shadow-xl group-hover:block">
+              {item.children.map((child: any) => (
+                <a href={child.href} class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50">
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a
+            href={item.href}
+            target={item.external ? '_blank' : undefined}
+            rel={item.external ? 'noopener noreferrer' : undefined}
+            class={`rounded-lg px-3 py-2 text-sm font-medium transition ${isActive(item.href) ? 'bg-white text-slate-900' : 'text-white/90 hover:bg-white/10 hover:text-white'}`}
+          >
+            {item.label}
+          </a>
+        )
+      )}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="https://member.kacangan.net/" class="hidden rounded-lg border border-white/20 px-4 py-2 text-sm font-semibold text-white hover:bg-white hover:text-slate-900 sm:inline-flex">LOGIN</a>
+      <a href="https://wa.me/6282324129752?text=Saya%20ingin%20konsultasi" class="btn btn-primary px-4 py-2 text-sm">Konsultasi Gratis</a>
+      <details class="relative md:hidden">
+        <summary class="list-none rounded-lg border border-white/20 p-2 text-white marker:hidden" aria-label="Buka menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></svg></summary>
+        <div class="absolute right-0 mt-2 w-64 rounded-xl border bg-white p-2 shadow-xl">
+          {site.nav.map((item: any) => (
+            <a href={item.href} class={`block rounded-lg px-3 py-2 text-sm ${isActive(item.href) ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50'}`}>{item.label}</a>
+          ))}
+          <div class="mt-2 border-t pt-2">
+            <a href="https://member.kacangan.net/" class="block rounded-lg bg-slate-900 px-3 py-2 text-center text-sm font-semibold text-white">Login / Daftar</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

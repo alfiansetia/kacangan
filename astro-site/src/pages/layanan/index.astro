@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const title = 'Layanan KCNET - Jasa Setting MikroTik, Cloud Userman, VPN Remote, Template Hotspot';
+const description = 'Daftar layanan KCNET: Jasa Setting MikroTik untuk RT/RW Net & kantor, Jasa Setting Squid Proxy, Cloud Userman RADIUS, VPN Remote tanpa IP Publik, Sistem PoE Centrum, dan Template Hotspot.';
+const keywords = 'layanan mikrotik, jasa setting mikrotik, cloud userman, vpn remote, template hotspot, squid proxy, poe centrum';
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <section class="bg-slate-950 py-10 text-white">
+    <div class="container-narrow">
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Layanan' }]} />
+      <h1 class="mt-4 text-4xl font-extrabold">LAYANAN — LAYANAN</h1>
+      <p class="mt-2 text-white/70">6 layanan spesial untuk kebutuhan jaringan Anda</p>
+    </div>
+  </section>
+
+  <section class="container-narrow py-12">
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="rounded-2xl border p-6 text-center">
+        <h2 class="font-semibold">Jasa Setting MikroTik</h2>
+        <p class="mt-2 text-sm text-slate-600">Untuk Warnet, Hotspot, RT/RW Net, Kantor, Sekolah, Cafe, Resto, dll.</p>
+        <a href="/jasa-setting-mikrotik/" class="btn btn-primary mt-4 w-full">Detail →</a>
+      </div>
+      <div class="rounded-2xl border p-6 text-center">
+        <h2 class="font-semibold">Jasa Setting Squid Proxy</h2>
+        <p class="mt-2 text-sm text-slate-600">Hemat bandwidth & percepat akses website dengan proxy server.</p>
+        <a href="/jasa-setting-mikrotik/" class="btn btn-primary mt-4 w-full">Detail →</a>
+      </div>
+      <div class="rounded-2xl border p-6 text-center">
+        <h2 class="font-semibold">Cloud Userman</h2>
+        <p class="mt-2 text-sm text-slate-600">RADIUS server MikroTik berbasis cloud untuk menyimpan data pengguna.</p>
+        <a href="/cloud-userman/" class="btn btn-primary mt-4 w-full">Detail →</a>
+      </div>
+      <div class="rounded-2xl border p-6 text-center">
+        <h2 class="font-semibold">VPN Remote</h2>
+        <p class="mt-2 text-sm text-slate-600">Akses MikroTik / perangkat di belakangnya dari luar jaringan tanpa IP Publik.</p>
+        <a href="/vpn-remote/" class="btn btn-primary mt-4 w-full">Detail →</a>
+      </div>
+      <div class="rounded-2xl border p-6 text-center">
+        <h2 class="font-semibold">Sistem PoE Centrum</h2>
+        <p class="mt-2 text-sm text-slate-600">Pelajari cara memberi daya banyak access point secara terpusat.</p>
+        <a href="/jasa-setting-mikrotik/" class="btn btn-primary mt-4 w-full">Detail →</a>
+      </div>
+      <div class="rounded-2xl border p-6 text-center">
+        <h2 class="font-semibold">Template Hotspot</h2>
+        <p class="mt-2 text-sm text-slate-600">Percantik tampilan portal hotspot sesuai keinginan & kebutuhan.</p>
+        <a href="/template-hotspot/" class="btn btn-primary mt-4 w-full">Detail →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

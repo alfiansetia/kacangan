@@ -1,0 +1,40 @@
+---
+import { site } from '../data/site';
+---
+<footer class="border-t bg-slate-950 text-slate-200">
+  <div class="container-narrow py-10">
+    <div class="grid gap-8 md:grid-cols-3">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/assets/images/logo.png" alt="KCNET logo" width="36" height="36" class="h-9 w-9 object-contain" />
+          <span class="text-lg font-bold text-white">Alfi Network</span>
+        </div>
+        <p class="mt-3 text-sm leading-relaxed text-slate-400">KCNET — Layanan tunneling untuk VPN Remote, Cloud Userman, Jasa Setting MikroTik, dan Template Hotspot. Solusi IP publik dinamis & Indihome.</p>
+        <div class="mt-4 flex gap-3">
+          <a href={site.social.twitter} target="_blank" rel="noopener" aria-label="Twitter" class="text-slate-400 hover:text-white">Twitter</a>
+          <a href={site.social.facebook} target="_blank" rel="noopener" aria-label="Facebook" class="text-slate-400 hover:text-white">Facebook</a>
+          <a href={site.social.instagram} target="_blank" rel="noopener" aria-label="Instagram" class="text-slate-400 hover:text-white">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Layanan</h3>
+        <ul class="mt-3 space-y-2 text-sm text-slate-400">
+          <li><a href="/jasa-setting-mikrotik/" class="hover:text-white">Jasa Setting Mikrotik</a></li>
+          <li><a href="/cloud-userman/" class="hover:text-white">Cloud Userman</a></li>
+          <li><a href="/vpn-remote/" class="hover:text-white">VPN Remote</a></li>
+          <li><a href="/template-hotspot/" class="hover:text-white">Template Hotspot</a></li>
+          <li><a href="/pembayaran/" class="hover:text-white">Pembayaran</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Kontak</h3>
+        <p class="mt-3 text-sm text-slate-400">
+          WA: <a href="https://wa.me/6282324129752?text=Saya%20ingin%20konsultasi" class="text-white hover:underline">0823-2412-9752</a><br />
+          Email: alfian.setia100@gmail.com<br />
+          <a href="https://member.kacangan.net/" class="mt-2 inline-block text-primary hover:underline">member.kacangan.net →</a>
+        </p>
+        <p class="mt-4 text-xs text-slate-500">© 2016 Alfi Network - All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>

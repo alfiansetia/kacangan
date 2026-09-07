@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const title = 'Cloud Userman MikroTik - User Manager External Multi Router | KCNET';
+const description = 'Cloud Userman adalah RADIUS server berbasis MikroTik User Manager cloud. Lebih aman, hemat resource router, hemat biaya VPS, multi router, unlimited session & hapus expired otomatis.';
+const keywords = 'cloud userman, userman mikrotik, radius mikrotik, usermanager external, multi router mikrotik';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Apa itu Cloud Userman?', acceptedAnswer: { '@type': 'Answer', text: 'Cloud Userman adalah RADIUS server berbasis MikroTik usermanager yang tersedia secara cloud.' } },
+    { '@type': 'Question', name: 'Jika internet mati apakah pengguna dapat login?', acceptedAnswer: { '@type': 'Answer', text: 'Tidak, karena berbasis cloud butuh koneksi internet ke server. Jika internet mati, user tidak dapat login.' } },
+    { '@type': 'Question', name: 'Apakah bisa untuk multi router?', acceptedAnswer: { '@type': 'Answer', text: 'Ya, satu database dapat digunakan di berbagai router MikroTik (satu otentikasi untuk lokasi berbeda).' } },
+    { '@type': 'Question', name: 'Apakah ada diskon untuk banyak router?', acceptedAnswer: { '@type': 'Answer', text: 'Ya: 2 Router 5%, 3 Router 10%, 4 Router 15%, 5 Router 20%, >5 Router 25%.' } },
+  ],
+};
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Cloud Userman MikroTik',
+  provider: { '@type': 'Organization', name: 'Alfi Network - KCNET', url: 'https://kacangan.net' },
+  description,
+  offers: [
+    { '@type': 'Offer', name: 'P1 Bulanan', price: '25000', priceCurrency: 'IDR', url: 'https://kacangan.net/cloud-userman/' },
+    { '@type': 'Offer', name: 'P2 Tahunan', price: '250000', priceCurrency: 'IDR', url: 'https://kacangan.net/cloud-userman/' },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} keywords={keywords} jsonLd={[faqJsonLd, serviceJsonLd]}>
+  <section class="bg-slate-950 py-10 text-white">
+    <div class="container-narrow">
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Cloud Userman' }]} />
+      <h1 class="mt-4 text-4xl font-extrabold">CLOUD USERMAN</h1>
+      <p class="mt-2 text-xl text-white/80">Usermanager External Untuk MikroTik</p>
+      <p class="mt-4 max-w-3xl text-white/70">CLOUD USERMAN merupakan usermanager external dengan kelebihan dibanding userman internal router. Cocok untuk router yang belum support userman atau ingin hemat resource router utama.</p>
+      <a href="#paket" class="btn btn-primary mt-6">Lihat Paket ↓</a>
+    </div>
+  </section>
+
+  <section class="container-narrow py-12">
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">DATA LEBIH AMAN</h3><p class="mt-2 text-sm text-slate-600">Data terpisah dengan router utama, aman jika router bermasalah.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">HEMAT SUMBER DAYA ROUTER</h3><p class="mt-2 text-sm text-slate-600">CPU & storage router tidak terbebani database userman.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">HEMAT BIAYA</h3><p class="mt-2 text-sm text-slate-600">Tidak perlu beli router tambahan atau sewa VPS.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">MULTI ROUTER</h3><p class="mt-2 text-sm text-slate-600">Satu database untuk banyak router / lokasi.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">UNLIMITED SESSION</h3><p class="mt-2 text-sm text-slate-600">Hilangkan batasan Active Session lisensi < level 6.</p></div>
+      <div class="rounded-2xl border p-6"><h3 class="font-semibold">HAPUS OTOMATIS USER EXPIRED</h3><p class="mt-2 text-sm text-slate-600">Hanya tampilkan user aktif, data expired terhapus otomatis.</p></div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-12">
+    <div class="container-narrow text-center">
+      <h2 class="text-3xl font-bold">Implementasi Cloud Userman Multi Router</h2>
+      <p class="mt-2 text-slate-600">Satu otentikasi untuk berbagai jaringan / lokasi.</p>
+      <img src="/assets/images/contoh-cloud-userman-1024x856.jpg" alt="Contoh implementasi Cloud Userman multi router MikroTik" width="1024" height="856" class="mx-auto mt-8 max-w-3xl rounded-xl border shadow" loading="lazy" />
+      <div class="mt-8">
+        <h3 class="text-xl font-bold">INGIN LAYANAN CLOUD USERMAN GRATIS?</h3>
+        <p class="mt-2 text-slate-600">Gratis jika membeli layanan <a href="/jasa-setting-mikrotik/" class="text-primary underline">Jasa Setting MikroTik</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="paket" class="container-narrow py-12">
+    <h2 class="text-center text-3xl font-bold">PILIH PAKET SESUAI KEBUTUHAN</h2>
+    <p class="mt-2 text-center text-slate-600">Pilih langganan Cloud Userman sesuai kebutuhan.</p>
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <div class="rounded-2xl border bg-white p-8 text-center shadow-sm">
+        <h3 class="font-bold">P1</h3>
+        <p class="mt-2"><span class="text-4xl font-extrabold">Rp 25K</span> <span class="text-slate-500">/bulan</span></p>
+        <ul class="mt-6 space-y-2 text-sm text-slate-600">
+          <li>1 Router MikroTik</li><li>UNLIMITED Generate Voucher</li><li>BACKUP Database Harian</li><li>GRATIS Migrasi Database</li><li>GRATIS Template Voucher</li><li>GRATIS Layanan VPN Remote</li><li>SUPPORT via WA Group</li>
+        </ul>
+        <a href="https://wa.me/6282324129752?text=Saya%20ingin%20berlangganan%20Cloud%20Userman%20bulanan%20P1" class="btn btn-primary mt-6 w-full">BUY NOW</a>
+      </div>
+      <div class="rounded-2xl border bg-white p-8 text-center shadow-sm">
+        <h3 class="font-bold">P2</h3>
+        <p class="mt-2"><span class="text-4xl font-extrabold">Rp 250K</span> <span class="text-slate-500">/tahun</span></p>
+        <ul class="mt-6 space-y-2 text-sm text-slate-600">
+          <li>1 Router MikroTik</li><li>UNLIMITED Generate Voucher</li><li>BACKUP Database Harian</li><li>GRATIS Migrasi Database</li><li>GRATIS Template Voucher</li><li>GRATIS Layanan VPN Remote</li><li>SUPPORT via WA Group</li><li>GRATIS Template Hotspot Premium</li>
+        </ul>
+        <a href="https://wa.me/6282324129752?text=Saya%20ingin%20berlangganan%20Cloud%20Userman%20tahunan%20P2" class="btn bg-slate-900 text-white hover:bg-slate-800 mt-6 w-full">BUY NOW</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-12">
+    <div class="container-narrow">
+      <h2 class="text-center text-3xl font-bold">FAQ</h2>
+      <div class="mx-auto mt-8 max-w-3xl space-y-4">
+        <details class="rounded-xl border bg-white p-4 open:bg-slate-50"><summary class="cursor-pointer font-semibold">Apa itu Cloud Userman?</summary><p class="mt-2 text-slate-600">RADIUS server berbasis MikroTik usermanager cloud.</p></details>
+        <details class="rounded-xl border bg-white p-4 open:bg-slate-50"><summary class="cursor-pointer font-semibold">Jika koneksi internet mati apakah pengguna dapat login?</summary><p class="mt-2 text-slate-600">Tidak, butuh koneksi internet ke server cloud.</p></details>
+        <details class="rounded-xl border bg-white p-4 open:bg-slate-50"><summary class="cursor-pointer font-semibold">Apakah bisa multi router?</summary><p class="mt-2 text-slate-600">Ya, satu database untuk banyak router.</p></details>
+        <details class="rounded-xl border bg-white p-4 open:bg-slate-50"><summary class="cursor-pointer font-semibold">Adakah diskon banyak perangkat?</summary><p class="mt-2 text-slate-600">2 Router 5% | 3 Router 10% | 4 Router 15% | 5 Router 20% | >5 Router 25%</p></details>
+      </div>
+      <p class="mt-8 text-center text-sm text-slate-500">Ada pertanyaan? <a href="https://wa.me/6282324129752?text=Saya%20ingin%20bertanya%20tentang%20Cloud%20Userman" class="text-primary underline">Hubungi Kami</a>.</p>
+    </div>
+  </section>
+</BaseLayout>
