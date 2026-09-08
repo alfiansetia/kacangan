@@ -9,9 +9,10 @@ export const site = {
   logo: '/images/logo.png',
   ogImage: '/images/product-meta.png',
   social: {
-    twitter: 'https://twitter.com/alfian_setia',
-    facebook: 'https://www.facebook.com/alfian.setiawan.90',
+    twitter: 'https://twitter.com/codewithalfi',
+    facebook: 'https://www.facebook.com/alfian.setiawan',
     instagram: 'https://instagram.com/codewithalfi',
+    tiktok: 'https://www.tiktok.com/@codewithalfi',
   },
   nav: [
     { label: 'Home', href: '/' },
